@@ -1,0 +1,115 @@
+.cabecalho__container{
+    display:flex;
+}
+.rodape__container{
+    display:flex;
+    flex-flow:column wrap;
+}
+.superior__secao__container{
+    display:flex;
+    align-items:center;
+    /* o white-space serve para que o texto nao quebre dentro da sua div */
+    white-space:nowrap;
+    /*o overflow serve para aplicar uma barra de rolagem quando tem items fora da tela */
+    overflow:scroll;
+    /* o gap serve para aplicar o espacamento apenas entre items sem afetar as estremidades */
+    gap:15px;
+}
+.menu__container{
+    position:fixed;
+    bottom:0%;
+    height:74px;
+    width:100%;
+}
+.menu__lista{
+    display:flex;
+    justify-content:space-around;
+    height:100%;
+}
+.menu__lista li {
+    /* align-self é ideal para aplicar propriedades diretamente no item */
+    align-self:center;
+}
+.menu__itens {
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display:none;
+}
+/* area dos videos */
+.videos__item {
+    height:303px;
+    width:280px;
+    /* o flex grow serve para que itens do tipo video o img se adaptem ao espaço disponivel em um container o padrao é 0  */
+    flex-grow:1;
+}
+.videos__container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+/* responsividade para celular */
+
+    @media(max-width: 650px){
+        
+        .cabecalho__pesquisar__item{
+            display:none;
+        }
+        .rodape__container {
+            justify-content:space-between;
+        }
+    }
+    /* responsividade para tablet */
+
+    @media(min-width:834px){
+        .superior__secao__container{
+            display:flex;
+        }        
+        .menu__container{
+            left:0;
+            height:auto;
+            width:74px;
+            top:80px;
+        }
+        .menu__lista{
+            flex-direction:column;
+            justify-content:flex-start;
+            padding-top:15px;
+            gap:33px;
+
+        }
+    }
+
+    /* responsividade para desktop */
+    @media(min-width:1440px){
+        .menu__container {
+            width:239px;
+            overflow:scroll;
+        }
+        .menu__lista:nth-child(2),
+        .menu__lista:nth-child(3),
+        .menu__lista:nth-child(4) {
+            display:flex;
+        }
+        .menu__lista{
+            height:auto;
+            padding:20px 17px 20px 15px;
+            gap:15px;
+        }
+        .menu__itens {
+            flex-direction:row;
+            gap:15px;
+            align-items:center;
+        }
+        .menu__lista:nth-child(3){
+            flex-direction:column-reverse;
+        }
+        .premiun{order:1;}
+        .filmes{order:2;}
+        .jogos{order:3;}
+        .maispagina{order:4;}
+    }
